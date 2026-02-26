@@ -1,73 +1,114 @@
 import streamlit as st
 
-# 1. 网页标题与高端图标
-st.set_page_config(page_title="Mitce Global - 极速专线接入", page_icon="💎", layout="centered")
+# 1. 页面设置
+st.set_page_config(page_title="Mitce Privilege | 尊享接入", page_icon="🌐", layout="wide")
 
 # 你的专属推广链接
 MY_AFF_LINK = "https://mitce.net/aff.php?aff=31164"
 
-# 2. 注入高级 CSS 样式
+# 2. 注入顶级视觉样式（CSS）
 st.markdown(f"""
     <style>
-    .stApp {{ background-color: #0e1117; color: white; }}
-    .promo-card {{
-        background: linear-gradient(135deg, #1e1e2f 0%, #2d2d44 100%);
-        padding: 30px;
-        border-radius: 20px;
-        border: 1px solid #3e3e5e;
+    /* 全局背景：极夜黑 */
+    .stApp {{
+        background-color: #050505;
+        color: #ffffff;
+    }}
+    
+    /* 渐变流光文字 */
+    .shiny-text {{
+        background: linear-gradient(120deg, #ffffff 0%, #a0a0a0 50%, #ffffff 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s linear infinite;
+        font-weight: 800;
+        font-size: 3.5rem;
+        letter-spacing: -1px;
+    }}
+    
+    @keyframes shine {{
+        to {{ background-position: 200% center; }}
+    }}
+
+    /* 毛玻璃卡片 */
+    .glass-card {{
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        padding: 50px;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        margin: 20px 0;
     }}
-    .price-tag {{ color: #ff4b4b; font-size: 24px; font-weight: bold; margin: 10px 0; }}
-    .btn-main {{
+
+    /* 苹果式动态按钮 */
+    .apple-btn {{
         display: inline-block;
-        background: linear-gradient(90deg, #ff4b4b 0%, #ff7575 100%);
-        color: white !important;
-        padding: 15px 40px;
-        border-radius: 50px;
+        background: #ffffff;
+        color: #000000 !important;
+        padding: 18px 45px;
+        border-radius: 40px;
+        font-size: 20px;
+        font-weight: 600;
         text-decoration: none;
-        font-size: 22px;
-        font-weight: bold;
-        transition: transform 0.3s;
-        margin-top: 20px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 20px rgba(255,255,255,0.2);
     }}
-    .btn-main:hover {{ transform: scale(1.05); box-shadow: 0 0 20px rgba(255,75,75,0.4); }}
-    .feature-text {{ color: #a0a0c0; font-size: 14px; margin-top: 10px; }}
+    
+    .apple-btn:hover {{
+        transform: translateY(-3px);
+        box-shadow: 0 10px 40px rgba(255,255,255,0.4);
+        background: #f0f0f0;
+    }}
+
+    /* 隐藏默认元素 */
+    #MainMenu {{visibility: hidden;}}
+    footer {{visibility: hidden;}}
+    header {{visibility: hidden;}}
     </style>
     """, unsafe_allow_html=True)
 
-# 3. 页面核心内容
-st.markdown("""
-    <div style='text-align: center; padding-bottom: 20px;'>
-        <h1 style='color: white; font-size: 40px;'>💎 Mitce 全球专线</h1>
-        <p style='color: #8080a0;'>2026 企业级跨界网络解决方案</p>
-    </div>
-    """, unsafe_allow_html=True)
+# 3. 页面布局
+st.write("") # 间距
+st.write("")
 
-# 动态倒计时效果（模拟紧迫感）
-st.warning("⏳ 专属 8 折内部优惠名额仅剩最后 7 个，申领后 24 小时内有效")
+# 居中标题
+st.markdown("<div style='text-align: center;'><h1 class='shiny-text'>Mitce Ultra</h1></div>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #888; font-size: 1.2rem; letter-spacing: 2px;'>BEYOND SPEED. REIMAGINE CONNECTIVITY.</p>", unsafe_allow_html=True)
 
-# 核心卡片
+st.write("")
+
+# 核心橱窗区
 st.markdown(f"""
-    <div class="promo-card">
-        <h2 style="color: white; margin-bottom: 0;">专属合作伙伴特惠</h2>
-        <div class="price-tag">限时折扣：立减 20% + 送 3 天试用</div>
-        <p style="color: #ccccff;">支持 8K 视频 / ChatGPT 优化 / 全球 200+ 节点</p>
-        <a href="{MY_AFF_LINK}" class="btn-main" target="_blank">🚀 立即激活专属权限</a>
-        <div class="feature-text">
-            <span>✅ 军工级加密</span> | <span>✅ 晚高峰零延迟</span> | <span>✅ 全平台支持</span>
-        </div>
+    <div class="glass-card">
+        <p style="color: #007aff; font-weight: 600; margin-bottom: 10px;">PREMIUM PARTNER ACCESS</p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">下一代全球专线网络</h2>
+        <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6;">
+            专为 8K 流媒体、大规模数据传输及 AI 开发优化。
+            通过合作伙伴协议，您将获得全网最低 80% 准入费率及极速通道权限。
+        </p>
+        <a href="{MY_AFF_LINK}" class="apple-btn" target="_blank">立即激活专属特惠</a>
+        <p style="margin-top: 25px; font-size: 0.9rem; color: #555;">
+            — 仅限受邀用户 —
+        </p>
     </div>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
+
+# 四列核心参数（极简风格）
+st.write("")
+c1, c2, c3, c4 = st.columns(4)
+with c1:
+    st.markdown("<p style='color:#555; text-align:center;'>LATENCY</p><h3 style='text-align:center;'>28ms</h3>", unsafe_allow_html=True)
+with c2:
+    st.markdown("<p style='color:#555; text-align:center;'>BANDWIDTH</p><h3 style='text-align:center;'>10Gbps</h3>", unsafe_allow_html=True)
+with c3:
+    st.markdown("<p style='color:#555; text-align:center;'>SLA</p><h3 style='text-align:center;'>99.99%</h3>", unsafe_allow_html=True)
+with c4:
+    st.markdown("<p style='color:#555; text-align:center;'>UPTIME</p><h3 style='text-align:center;'>∞</h3>", unsafe_allow_html=True)
 
 st.write("")
 st.write("")
 
-# 增加信任背书
-col1, col2, col3 = st.columns(3)
-col1.metric("全球用户", "500k+", "+12%")
-col2.metric("平均延迟", "45ms", "-15%")
-col3.metric("服务可用率", "99.9%", "Stable")
-
-st.markdown("---")
-st.caption("注：本页面由 Mitce 官方合作伙伴提供，点击跳转后请认准官方域名 mitce.net。")
+# 底部信息
+st.markdown("<div style='text-align: center; color: #333; font-size: 0.8rem;'>Designed by Mitce Ultra Labs. All Rights Reserved.</div>", unsafe_allow_html=True)
