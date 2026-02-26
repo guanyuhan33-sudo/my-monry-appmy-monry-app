@@ -1,4 +1,4 @@
 rembg
 streamlit
 pillow
-
+streamlit-image_comparison
